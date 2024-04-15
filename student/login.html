@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>student - attendance system</title>
+  <link rel="stylesheet" href="../css/student-login.css">
+</head>
+<body>
+  <main>
+    <!-- <div class="welcome-student">
+      Student Attendance System
+    </div> -->
+    <div class="student-login-container">
+      <form class="student-login-form" id="student-login-form" method="POST">
+        <div class="student-login-text">
+          Student Login
+        </div>
+        <div class="student-input-container">
+          <label for="email">Enter Email Id</label>
+          <input type="email" name="email" id="email">
+        </div>
+        <div class="student-input-container">
+          <label for="password">Enter Password</label>
+          <input type="password" name="password" id="password">
+        </div>
+        <div class="student-login-btn-container">
+          <input type="submit" value="login" class="student-login-btn">
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <div class="error-message"></div>
+  <div class="success-message"></div>
+
+
+
+  <script src="../js/jquery.js"></script>
+  <script>
+    $(document).ready( function(){
+      sessionStorage.removeItem("pp");
+      sessionStorage.clear();
+      // checking some criteria for logging in the student 
+      $("#student-login-form").submit(function(e){
+        e.preventDefault();
+        let email = $("#email").val();
+        let pass = $("#password").val();
+        let obj = {email : email, pass: pass, role:'student'};
+        let jsonStr = JSON.stringify(obj);
+        // if nothing is entered by the user and he clicks login 
+        if(email=="" || pass==""){
+          $(".success-message").hide();
+          $(".error-message").fadeIn();
+          $(".error-message").text("all fields are mendatory");
+          setTimeout(() => {
+            $(".error-message").fadeOut();
+          }, 4000);
+        }else{
+
+          $.ajax({
+            url:"http://localhost/Attendance-system/api/api-validate-user.php",
+            type:"POST",
+            data: jsonStr,
+            success : function(data){
+              console.log(data);
+              // console.log(data[0].role);
+              if(data.status == false){
+                // console.log("in");
+                $(".success-message").hide();
+                $(".error-message").fadeIn();
+                $(".error-message").text(data.message);
+                setTimeout(() => {
+                  $(".error-message").fadeOut();
+                }, 4000);
+              } else{
+                if(data[0].role == "student"){
+                  $(".error-message").hide();
+                  $(".success-message").text("loggend in successfully");
+                  setTimeout(() => {
+                    $(".success-message").fadeOut();
+                  }, 4000);
+                  window.location = "http://localhost/Attendance-system/student/home.php";
+                } else{
+                  let msg = "No student found with this crendtials";
+                  
+                  $(".success-message").hide();
+                  $(".error-message").text(msg);
+                  $(".error-message").fadeIn();
+                  setTimeout(() => {
+                    $(".error-message").fadeOut();
+                  }, 4000);
+                }
+              }
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

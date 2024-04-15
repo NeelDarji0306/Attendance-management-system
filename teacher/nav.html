@@ -1,0 +1,34 @@
+<nav style="line-height: normal;">
+  <div class="menu-container">
+    <button type="button" id="menu-btn">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <div class="logo-container">
+    <a href="home.php">logo-img</a>
+  </div>
+  <div class="pages-container">
+    <a href="home.php">home</a>
+    <a href="students.php">students</a>
+    <!-- <a href="pending.php">pending<sup id="pending-count">1</sup></a> -->
+    <a href="attendance.php">attendance</a>
+    <a href="logout.php" class="logout">logout</a>
+  </div>
+  <div class="onhover">
+
+    <div class="right">
+      <div class="pp-c" id="pp-c"><img src="" alt=""></div>
+      <div class="name-c" id="name-c" style="text-transform:capitalize"></div>
+      <!-- <div class="name-c" id="name-c"><?php //echo $_SESSION['userInfo']['firstName'] ?></div> -->
+    </div>
+    
+    <div class="options d-none">
+      <div class="see-profile "><a href="profile.php"><span class="material-symbols-outlined">person</span>see profile</a></div>
+      <div class="edit-profile "><a href="update-profile.php"><span class="material-symbols-outlined">manage_accounts</span>update profile</a></div>
+      <div class="manage-subject "><a href="manage-subject.php"><span class="material-symbols-outlined">auto_stories</span>manage subject</a></div>
+      <div class="manage-subject "><a href="reset-password.php"><span class="material-symbols-outlined">key</span>reset password</a></div>
+      <div class="manage-subject "><a href="logout.php" class="logout"><span class="material-symbols-outlined">logout</span>logout</a></div>
+      
+    </div>
+  </div>
+</nav>

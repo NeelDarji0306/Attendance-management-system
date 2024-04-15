@@ -1,0 +1,105 @@
+/* visit to pp.css in profile-pic folder*/
+
+.pic-container>img{
+  max-height: 85vh;
+  width:30vw;
+}
+
+.manage-sub-btn > #manage-sub-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px;
+  padding: 0.4rem 1.2rem;
+  /* background-color: mediumseagreen; */
+  background-color: white;
+  border: none;
+  /* color: white; */
+  color: black;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 15px;
+  border: 2px solid rgb( 73 108 243 );
+  font-weight: 600;
+  font-size: large;
+  position: absolute;
+  right: 2rem;
+  top: 0;
+  background-color: rgb( 73 108 243 );
+  color: white;
+}
+.back-btn > #back-pp-btn {
+    position: absolute;
+    top: 6px;
+    left: 20px;
+    font-size: xx-large;
+    cursor: pointer;
+}
+.error-message {
+  display: none;
+  z-index: 100;
+  position: absolute;
+  bottom: 5%;
+  right: 30%;
+  box-sizing: border-box;
+  width: 40%;
+  margin-left: 50%;
+  color: crimson;
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgb(255 222 222);
+}
+.success-message {
+  display: none;
+  z-index: 100;
+  position: absolute;
+  bottom: 5%;
+  right: 30%;
+  box-sizing: border-box;
+  width: 40%;
+  margin-left: 50%;
+  color: rgb(71, 110, 71);
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgb(232 255 222);
+}
+
+.remove-profile-pic-btn {
+  cursor: pointer;
+  background: none;
+  font-size: large;
+  border: none;
+  cursor: pointer;
+}
+.update-form{
+  flex-direction: row;
+}
+@media (max-width: 767.98px) {
+  .update-from {
+    flex-direction:column;
+  }
+  form#edit-form{
+    margin-bottom: 2rem;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  
+  .manage-sub-btn > #manage-sub-btn {
+    right: 0;
+    margin-right: 7px;
+
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  
+  .manage-sub-btn > #manage-sub-btn {
+    
+    font-size: medium;
+
+  }
+}

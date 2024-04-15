@@ -1,0 +1,592 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+main{
+  
+  width: 90%;
+  margin: 25px auto;
+  justify-content: center;
+  align-items: center;
+}
+#table-header{
+  width: 100%;
+  display: flex;
+  background-color: rgb(250 249 250);
+  height: 3.7rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: 1px solid rgb(244 242 245);
+  border-radius: 5px 5px 0 0;
+  font-size: large;
+}
+#table-header div{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 15px;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  /* opacity: 0.95; */
+}
+#table-header button{
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px;
+  padding: 0.4rem 0.8rem;
+  /* background-color: mediumseagreen; */
+  /* background-color: #1e9293;    report and login color also edit we caan use */
+  background-color: white;    /*report and login color also edit we caan use*/
+  border: none;
+  /* color: white; */
+  color: black;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 15px;
+  border: 2px solid #7e22ce;
+  font-weight: 600;
+  font-size: large;
+}
+#table-header button:hover{
+  color: white;
+  background-color: #7e22ce;
+  /* scale: 1.05; */
+  font-weight: 600;
+  font-size: large;
+}
+#content-container{
+  border: 1px solid rgb(229 229 231);
+  padding: 0 0 1rem 0;
+}
+#search-container{
+  width: 100%;
+  display: flex;
+  height: 3rem;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid rgb(245 242 243);
+  gap: 0.5rem;
+}
+#search-uni,#search-grades{
+  border: 2px solid rgb(240, 238, 241);
+  height: 65%;
+  margin-right: 1.5%;
+  width: 15%;
+  min-width: 150px;
+  font-size: 1.1rem;
+  padding: 3px 10px;
+}
+#search:focus{
+  outline: 0;
+}
+.uni-container{
+  border-bottom: 1px solid rgb(229, 229, 231);
+  border-left: 1px solid rgb(229, 229, 231);
+  border-right: 1px solid rgb(229, 229, 231);
+}
+.grades-container{
+  border-bottom: 1px solid rgb(229, 229, 231);
+  border-left: 1px solid rgb(229, 229, 231);
+  border-right: 1px solid rgb(229, 229, 231);
+}
+#content-container table{
+  margin: auto;
+  border: 1px solid rgb(229 229 231);
+}
+
+#load-uni tr:nth-child(odd),#load-grades tr:nth-child(odd){
+  background: rgb(244 243 244);
+}
+
+table th,table td{
+  padding: 0.7rem 0.8rem 0.7rem 0.8rem;
+  text-align: start;
+  border: 1px solid rgb(229, 229, 231);
+}
+
+.profile-pic{
+  height: 3rem;
+  /* border-radius: 50%; */
+  
+}
+
+/* .profile-pic{
+  height: 48px;
+  width: 48px;
+  
+} */
+
+.view-btn{
+  padding: 0.4rem 0.8rem;
+  /* background-color: mediumseagreen; */
+  /* background-color: #1e9293;    report and login color also edit we caan use */
+  background-color: #7e22ce;    /*report and login color also edit we caan use*/
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.edit-btn{
+  padding: 0.4rem 0.8rem;
+  /* background-color: mediumseagreen; */
+  /* background-color: #1e9293;    report and login color also edit we caan use */
+  background-color: rgb(73 108 243);    /*report and login color also edit we caan use*/
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-btn{
+  padding: 0.4rem 0.8rem;
+  /* background-color: mediumseagreen; */
+  /* background-color: #1e9293;    report and login color also edit we caan use */
+  background-color: rgb(216 50 76);    /*report and login color also edit we caan use*/
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+  /* modal styling */
+#modal , #view-modal, #delete-modal, #add-modal, .delete-modal{
+  background: rgba(0,0,0,0.7);
+  position: fixed;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: none;
+}
+#modal-form,#view-modal-div,#delete-modal-div, #add-modal-form,.delete-modal-div{
+  background: #fff;
+  width: 60%;
+  position: relative;
+  top: 10%;
+  left: calc(50% - 30%);
+  padding: 15px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#modal-form{
+  width: 50%;
+}
+#add-modal-form{
+  width: 40%;
+  left: calc(50% - 20%);
+}
+#delete-modal-div,.delete-modal-div{
+  padding: 30px;
+}
+#modal-form,#add-modal-form{
+  top: 10%;
+}
+#delete-modal-div,.delete-modal-div{
+  top: 5%;
+  width: 50%;
+  left: calc(50% - 25%);
+}
+.btn-container{
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+#modal-form h2,#view-modal-div h2,#add-modal-form h2{
+  margin: 0 0 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+/* #modal-form input[type = "text"],
+#modal-form input[type="number"]{ */
+#modal-form input[type = "text"],
+#modal-form input[type = "number"],
+#modal-form input[type="email"],
+#add-modal-form input[type = "text"],
+#add-modal-form input[type = "number"],
+#add-modal-form input[type="email"]{
+  width: 90%;
+  height: 25px;
+  font-size: 18px;
+  padding: 3px 10px;
+  margin-right: 17px;
+  border-radius: 4px;
+  border: 1px solid #5D3F6A;
+  outline: 0;
+}
+#modal-form select,#add-modal-form select{
+  width: 90%;
+  height: 30px;
+  font-size: 18px;
+  padding: 3px 10px;
+  margin-right: 17px;
+  border-radius: 4px;
+  border: 1px solid #5D3F6A;
+  outline: 0;
+}
+
+#load-view-table , #edit-form, #add-form{
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+  justify-content: center;
+  align-items: center;
+}
+#add-form tr td:first-child{
+  padding-right: 3%;
+}
+#load-view-table td,#edit-form td,#add-form td{
+  border: none;
+}
+#edit-form td, #add-form td{
+  padding: 10px 0px;
+}
+ #add-form td:first-child{
+  text-align: end;
+}
+#load-view-table td{
+  border-bottom: 1px solid rgb(147, 147, 147);
+  padding: 20px 0px;
+}
+#load-view-table tr:last-child td,#edit-form tr:last-child td {
+  border-bottom: none;
+}
+
+.close-btn{
+  background: red;
+  color: white;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  cursor: pointer;
+}
+
+#edit-uni-submit,#edit-grades-submit,#ok-btn,#ok-clg-btn,#ok-schl-btn,#cancel-btn,#cancel-clg-btn,#cancel-schl-btn,#add-uni-submit,#add-grades-submit{
+  background:#2c3e50;
+  color: #fff;
+  font-size: 18px;
+  border:0;
+  padding: 8px 30px;
+  margin-left: 7px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#edit-college-submit:focus,#edit-school-submit:focus{
+  outline: 0;
+}
+/* #add-uni-submit,#add-grades-submit{
+   background-color:  #7e22ce;
+} */
+#ok-btn,#ok-clg-btn,#ok-schl-btn{
+  background-color:  red;
+  /* background-color:  rgb(216 50 76); */
+}
+#cancel-btn,#cancel-clg-btn,#cancel-schl-btn{
+  background:  green;
+  /* background:  mediumaquamarine; */
+}
+
+.grades-container{
+  margin-top: 3.5rem;
+}
+
+
+
+.error-message{
+  display: none;
+  z-index: 100;
+  position: absolute;
+  bottom: 5%;
+  right: 30%;
+  box-sizing: border-box;
+  width: 40%;
+  margin-left: 50%;
+  color:crimson;
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgb(255 222 222);
+}
+.success-message{
+  display: none;
+  z-index: 100;
+  position: absolute;
+  bottom: 5%;
+  right: 30%;
+  box-sizing: border-box;
+  width: 40%;
+  margin-left: 50%;
+  color:rgb(71, 110, 71);
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgb(232 255 222);
+}
+
+/* #remove-profile-pic{
+  text-align: center;
+  padding-top: 5%;
+}
+#remove-profile-pic-btn{
+  cursor: pointer;
+  background: none;
+  font-size: large;
+  border: none;
+} */
+
+.remove-profile-pic{
+  text-align: center;
+  padding-top: 5%;
+}
+.remove-profile-pic-btn{
+  cursor: pointer;
+  background: none;
+  font-size: large;
+  border: none;
+}
+
+.pic-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-pp{
+  height: 200px;
+}
+
+
+
+@media screen and (max-width:978px) {
+  /* #load-view-table .pic-container, #edit-form .pic-container{
+    display: none;
+  } */
+  #load-view-table , #edit-form{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /* #edit-form .pic-container{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  } */
+  #load-view-table , #edit-form, #add-form{
+    font-size: normal;
+  }
+  #modal-form select,#add-modal-form select{
+    width: 95%;
+  }
+  
+  #modal , #view-modal, #delete-modal, #add-modal,.delete-modal{
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 200%;
+    z-index: 10;
+    display: none;
+  }
+  #modal-form,#view-modal-div,#delete-modal-div, #add-modal-form,.delete-modal-div{
+    background: #fff;
+    width: 70%;
+    position: relative;
+    top: 5%;
+    left: calc(50% - 35%);
+    padding: 15px;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  #delete-modal-div,.delete-modal-div{
+    padding: 30px;
+  }
+  #delete-modal-div,.delete-modal-div{
+    top: 3%;
+    width: 75%;
+    left: calc(50% - 37.5%);
+  }
+}
+
+@media screen and (max-width:770px) {
+  
+  table th,table td{
+    padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+    text-align: start;
+    border: 1px solid rgb(229, 229, 231);
+  }
+  table th{
+    padding: 0.7rem 0.4rem;
+  }
+}
+
+@media screen and (max-width:680px) {
+  table th,table td{
+    padding: 0.4rem 0.1rem;
+    text-align: start;
+    border: 1px solid rgb(229, 229, 231);
+    font-size: 14.5px;
+  }
+  table th{
+    padding: 0.7rem 0.1rem;
+  }
+  /* .edit-btn,.delete-btn,.view-btn{
+    font-size: small;
+  } */
+  #search{
+    font-size: 14.5px;
+  }
+}
+@media screen and (max-width:590px) {
+  table th,table td{
+    padding: 0.4rem 0.1rem;
+    text-align: start;
+    border: 1px solid rgb(229, 229, 231);
+    font-size: small;
+  }
+  table th{
+    padding: 0.7rem 0.1rem;
+  }
+  .edit-btn,.delete-btn,.view-btn{
+    font-size: small;
+  }
+  #search{
+    font-size: small;
+    min-width: 110px;
+  }
+  #table-header button{
+    font-size: medium;
+  }
+}
+
+
+@media screen and (max-width:545px) {
+  table th,table td{
+    padding: 0.4rem 0.03rem;
+    text-align: start;
+    border: 1px solid rgb(229, 229, 231);
+    font-size: smaller;
+  }
+  table th{
+    padding: 0.7rem 0.1rem;
+  }
+  .edit-btn,.delete-btn,.view-btn{
+    font-size: smaller;
+    padding: 0.3rem 0.6rem;
+  }
+  tr td:nth-child(3),tr th:nth-child(3){
+    display: none;
+  }
+  #search{
+    font-size: smaller;
+  }
+  .modal-pp{
+    height: 155px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  #profile-pic{                 /* it's id id profile-pic  */
+    height: 2rem;
+  }
+  .edit-btn,.delete-btn,.view-btn{
+    font-size: smaller;
+    padding: 0.3rem 0.4rem;
+  }
+  main{
+    width: 98%;
+  }
+  #search{
+    font-size: smaller;
+  }
+  .modal-pp{
+    height: 110px;
+  }
+}
+
+
+.pagination{
+  text-align: end;
+  padding: 10px;
+  margin-right: 5%;
+}
+.pagination a,.pagination button{
+  /* background: #2980b9; */
+  background: white;
+  border: 1px solid rgb(151, 146, 146);
+  /* color: #fff; */
+  /* color: blue; */
+  color: #304ec9;
+  /* color: #2d45a1; */
+  text-decoration: none;
+  display: inline-block;
+  padding:5px 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.pagination a.active{
+  background: #2d45a1;
+}
+.disabled{
+  /* background-color: rgb(229, 229, 231) !important; */
+  color: rgb(73, 73, 76) !important;
+  cursor: default !important;
+  /* cursor: progress !important; */
+}
+#content-container-uni #pagination-uni span{
+  font-size: small;
+  padding-right: 5px;
+  color: #636363;
+}
+#content-container-grades #pagination-grades span{
+  font-size: small;
+  padding-right: 5px;
+  color: #636363;
+}
+
+/* .hrr1{
+  
+  display: inline;
+}
+.hrr{
+  margin: 0;
+  padding: 0;
+  width: 45%;
+} */
+hr{
+  /* border: none; */
+  /* height: 1px; */
+  /* background-color: #000; */
+  width: 34%;
+  margin: auto;
+  display: inline-block;
+}
+/* hr::before,
+hr::after{
+  content: "OR";
+  display: inline-block;
+  color: #000;
+  margin: 0px 2px;
+} */
+.hrr1{
+  width: 100% !important;
+  text-align: center !important;
+}
+.hr-style{
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  text-align: center !important;
+}
