@@ -407,13 +407,13 @@
           type: "POST",
           data: loadSubStr,
           success: function(data) {
-            // console.log(data);
+            // // console.log(data);
             if (data.status == false) {
               $(id).append(`<option value="${data.message}">${data.message}</option>`);
             } else {
               // splitting data into array of subjucts
               data = data[0].sub.split(",");
-              // console.log(data)
+              // // console.log(data)
 
             }
             $.each(data, function(key, value) {
@@ -440,9 +440,9 @@
         defaultClgSub();
         // if($("#sem").val()!=null && $("#dep").val()!=null){
         loadClgSub("#sub_c", $("#sem").val(), $("#uni").val(), $("#dep").val());
-        // console.log(uni)
-        // console.log($("#sem").val())
-        // console.log($("#dep").val())
+        // // console.log(uni)
+        // // console.log($("#sem").val())
+        // // console.log($("#dep").val())
 
         // }
       });
@@ -450,9 +450,9 @@
         defaultClgSub();
         // if($("#sem").val()!=null && $("#dep").val()!=null){
         loadClgSub("#sub_c", $("#sem").val(), $("#uni").val(), $("#dep").val());
-        // console.log(uni)
-        // console.log($("#sem").val())
-        // console.log($("#dep").val())
+        // // console.log(uni)
+        // // console.log($("#sem").val())
+        // // console.log($("#dep").val())
 
         // }
       });
@@ -460,9 +460,9 @@
         defaultClgSub();
         // if($("#sem").val()!=null && $("#dep").val()!=null){
         loadClgSub("#sub_c", $("#sem").val(), $("#uni").val(), $("#dep").val());
-        // console.log(uni)
-        // console.log($("#sem").val())
-        // console.log($("#dep").val())
+        // // console.log(uni)
+        // // console.log($("#sem").val())
+        // // console.log($("#dep").val())
 
         // }
       });
@@ -482,13 +482,13 @@
           type: "POST",
           data: loadSubStr,
           success: function(data) {
-            console.log(data);
+            // console.log(data);
             if (data.status == false) {
               $(id).append(`<option value="${data.message}">${data.message}</option>`);
             } else {
               // splitting data into array of subjucts
               data = data[0].sub.split(",");
-              // console.log(data)
+              // // console.log(data)
 
             }
             $.each(data, function(key, value) {
@@ -522,9 +522,9 @@
         defaultSchlSub();
         // if($("#sem").val()!=null && $("#dep").val()!=null){
         loadSchlSub("#sub_s", $("#grade").val(), $("#schl").val());
-        // console.log(schlname)grade
-        // console.log($("#sem").val())
-        // console.log($("#dep").val())
+        // // console.log(schlname)grade
+        // // console.log($("#sem").val())
+        // // console.log($("#dep").val())
 
         // }
       });
@@ -760,8 +760,8 @@
 
         if(error == 0)
         {
-          // console.log($('#grade_id').val());
-          console.log(from_date,to_date,city,uni,clg,dep,sem,laborlec,sub_c);
+          // // console.log($('#grade_id').val());
+          // console.log(from_date,to_date,city,uni,clg,dep,sem,laborlec,sub_c);
           $('#from_date_clg').val('');
           $('#to_date_clg').val('');
           // $('#city').val('');
@@ -868,9 +868,9 @@
 
         if(error == 0)
         {
-          // console.log($('#grade_id').val());
-          console.log($('#from_date_schl').val());
-          console.log($('#to_date_schl').val());
+          // // console.log($('#grade_id').val());
+          // console.log($('#from_date_schl').val());
+          // console.log($('#to_date_schl').val());
           $('#from_date_schl').val('');
           $('#to_date_schl').val('');
           // $('#city').val('');

@@ -285,7 +285,7 @@
         // $("#load-college-student").html("");
         // data: jsonStr, AAMA PAGE ID APISU LATER ON....
         let jsonObjForPagination = {page: page, limit: limit, ...userRoleObj};
-        console.log(jsonObjForPagination);
+        // console.log(jsonObjForPagination);
         let jsonStrForPagination = JSON.stringify(jsonObjForPagination);
         $.ajax({
           url:"http://localhost/Attendance-system/api/api-fetch-college-user.php",
@@ -296,7 +296,7 @@
             $("#load-college-student").html("");
             $("#pagination-college").html("");
             
-            // console.log(data);
+            // // console.log(data);
             if(data.status == false){
               $("#load-college-student").html("<tr style='height: 4rem'><td colspan='7'><h2>"+ data.message +"</h2></td></tr>");
             }else{
@@ -327,7 +327,7 @@
 
               
                   let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -379,12 +379,12 @@
 
       $(document).on("click","#college-page-prev-btn",function(){
         let page = $("#college-page-prev-btn").data("prevpage");
-        console.log(page);
+        // console.log(page);
         loadCollegeStudent(page);
       });
       $(document).on("click","#college-page-next-btn",function(){
         let page = $("#college-page-next-btn").data("nextpage");
-        console.log(page);
+        // console.log(page);
         loadCollegeStudent(page);
       });
       function loadSchoolStudent(page=1,limit=4){
@@ -402,7 +402,7 @@
             $("#load-school-student").html("");
             $("#pagination-school").html("");
 
-            // console.log(data);
+            // // console.log(data);
             if(data.status == false){
               $("#load-school-student").html("<tr style='height: 4rem'><td colspan='7'><h2>"+ data.message +"</h2></td></tr>");
             }else{
@@ -430,7 +430,7 @@
               });
               
                   let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -480,12 +480,12 @@
                 
       $(document).on("click","#school-page-prev-btn",function(){
         let page = $("#school-page-prev-btn").data("prevpage");
-        console.log(page);
+        // console.log(page);
         loadSchoolStudent(page);
       });
       $(document).on("click","#school-page-next-btn",function(){
         let page = $("#school-page-next-btn").data("nextpage");
-        console.log(page);
+        // console.log(page);
         loadSchoolStudent(page);
       });
     // to initally load students
@@ -510,7 +510,7 @@
           type:"POST",
           data: jsonString,
           success : function(data){
-            // console.log(data);
+            // // console.log(data);
             // $("#load-view-table table").append('<tr><td>hii1</td></tr>');
             // $("#load-view-table table").append('<tr><td>hii2</td></tr>');
             // $("#load-view-table table").append('<tr><td>hii3</td></tr>');
@@ -754,7 +754,7 @@
           type:"POST",
           data: jsonString,
           success : function(data){
-            console.log(data);
+            // console.log(data);
             // $("#load-view-table table").append('<tr><td>hii1</td></tr>');
             // $("#load-view-table table").append('<tr><td>hii2</td></tr>');
             // $("#load-view-table table").append('<tr><td>hii3</td></tr>');
@@ -1310,10 +1310,10 @@
             processData: false,
             async:false,
             success : function(data){
-              // console.log(data);
-              // console.log(data[0].role);
+              // // console.log(data);
+              // // console.log(data[0].role);
               if(data.status == false){
-                // console.log("in");
+                // // console.log("in");
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
                 $(".error-message").text(data.message);
@@ -1323,18 +1323,18 @@
               } else{
                 // onLoad();
                 if(data.soc == "college"){
-                  console.log("lctu");
+                  // console.log("lctu");
                   loadCollegeStudent(collegePage);
                   // to avoid the confusion we are clearing the search thing...
                   $("#search-college-student").val("");
                 } 
                 if(data.soc == "school"){
-                  console.log("lstu");
+                  // console.log("lstu");
                   loadSchoolStudent(schoolPage);
                   // to avoid the confusion we are clearing the search thing...
                   $("#search-school-student").val("");
                 }
-                // console.log("inin");
+                // // console.log("inin");
                 $(".error-message").hide();
                 $(".success-message").fadeIn();
                 $(".success-message").text(data.message);
@@ -1350,7 +1350,7 @@
       
       // to remove profile pic and set it to the default one
       $(document).on("click","#remove-profile-pic-btn-clg",function(){
-        // console.log(users.length);
+        // // console.log(users.length);
         $("#delete-modal-clg").fadeIn(300);
         let uId = $("#edit-college-student-user-id").val();
         // let uIdObj = {userId : uId};
@@ -1359,31 +1359,31 @@
         $(("#ok-clg-btn")).data("id",uId);
       });
       $(document).on("click","#ok-clg-btn",function(){
-        // console.log($(this).data("id"));
+        // // console.log($(this).data("id"));
         let uId = $(this).data("id");
         let uIdObj = {userId : uId};
         let uIdStr = JSON.stringify(uIdObj);
-          // console.log("ok")
+          // // console.log("ok")
           $.ajax({
             url:"http://localhost/Attendance-system/api/api-default-picture.php",
             type:"POST",
             data:uIdStr,
             success : function(data){
               if(data.status==true){
-                // console.log(users);
+                // // console.log(users);
                 $.each(users,function(key,value){
-                  // console.log(value);
+                  // // console.log(value);
                   if($($("img.profile-pic")[key]).data("id")==$($("#remove-profile-pic-btn-clg").closest("#edit-form").children("table").children("tr").children("td").children("input")[1]).val()){
                     $($("img.profile-pic")[key]).attr("src","../images/default.jpg");
                     
                   }
                 });
                 // for(let i=0; i < users.length; i++){
-                //   console.log(users[i])
+                //   // console.log(users[i])
                 // }
                 $("#edit-form .pic-container").html("<img name='profilePic' src = '../images/default.jpg' alt = 'profile_pic' height = '200px'> <input type='file' name='profile-picture' id='profile-picture'>");
               }
-              // console.log(data.message);
+              // // console.log(data.message);
             }
             
           });
@@ -1399,11 +1399,11 @@
         $(("#ok-schl-btn")).data("id",uId);
       });
       $(document).on("click","#ok-schl-btn",function(){
-        // console.log($(this).data("id"));
+        // // console.log($(this).data("id"));
         let uId = $(this).data("id");
         let uIdObj = {userId : uId};
         let uIdStr = JSON.stringify(uIdObj);
-          // console.log("ok")
+          // // console.log("ok")
           $.ajax({
             url:"http://localhost/Attendance-system/api/api-default-picture.php",
             type:"POST",
@@ -1412,7 +1412,7 @@
               if(data.status==true){
                 
                 $.each(users,function(key,value){
-                  // console.log(value);
+                  // // console.log(value);
                   if($($("img.profile-pic")[key]).data("id")==$($("#remove-profile-pic-btn-schl").closest("#edit-form").children("table").children("tr").children("td").children("input")[1]).val()){
                     $($("img.profile-pic")[key]).attr("src","../images/default.jpg");
                     
@@ -1420,7 +1420,7 @@
                 });
                 $("#edit-form .pic-container").html("<img name='profilePic' src = '../images/default.jpg' alt = 'profile_pic' height = '200px'> <input type='file' name='profile-picture' id='profile-picture'>");
               }
-              // console.log(data.message);
+              // // console.log(data.message);
             }
             
           });
@@ -1655,10 +1655,10 @@
             type:"POST",
             data: addClgStudentJsonStr,
             success : function(data){
-              console.log(data);
-              // console.log(data[0].role);
+              // console.log(data);
+              // // console.log(data[0].role);
               if(data.status == false){
-                // console.log("in");
+                // // console.log("in");
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
                 $(".error-message").text(data.message);
@@ -1668,7 +1668,7 @@
               } else{
                 // loadCollegeStudent(collegePage);
                 loadCollegeStudent(1); //aa pn chale coz aapde obviously page no. 1, je by default load thse, ene j load krvanu che
-                // console.log("inin");
+                // // console.log("inin");
                 $(".error-message").hide();
                 $(".success-message").fadeIn();
                 $(".success-message").text(data.message);
@@ -1725,10 +1725,10 @@
             type:"POST",
             data: addSchlStudentJsonStr,
             success : function(data){
-              console.log(data);
-              // console.log(data[0].role);
+              // console.log(data);
+              // // console.log(data[0].role);
               if(data.status == false){
-                // console.log("in");
+                // // console.log("in");
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
                 $(".error-message").text(data.message);
@@ -1739,7 +1739,7 @@
                 
                 // loadSchoolStudent(schoolPage);
                 loadSchoolStudent(1); //aa pn chale coz aapde obviously page no. 1, je by default load thse, ene j load krvanu che
-                // console.log("inin");
+                // // console.log("inin");
                 $(".error-message").hide();
                 $(".success-message").fadeIn();
                 $(".success-message").text(data.message);
@@ -1773,8 +1773,8 @@
         // alert(schlOrClg);
       });
       $(document).on("click","#ok-btn",function(){
-        // console.log($(this).data("id"));
-        // console.log($(this).data("soc"));
+        // // console.log($(this).data("id"));
+        // // console.log($(this).data("soc"));
         let uId = $(this).data("id");
         let schlOrClg = $(this).data("soc");
         let deleteUserObj = {uId : uId};
@@ -1786,7 +1786,7 @@
           async:false,
           success : function(data){
             if(data.status == false){
-              // console.log("in");
+              // // console.log("in");
               $(".success-message").hide();
               $(".error-message").fadeIn();
               $(".error-message").text(data.message);
@@ -1795,20 +1795,20 @@
               }, 4000);
             } else{
               // onLoad();
-              // console.log(users);
+              // // console.log(users);
               users.pop();
-              // console.log(users);
+              // // console.log(users);
               if(schlOrClg == "college"){
-                console.log("c");
+                // console.log("c");
                 loadCollegeStudent(collegePage);
                 $("#search-college-student").val("");
               } 
               if(schlOrClg == "school"){
-                console.log("s");
+                // console.log("s");
                 loadSchoolStudent(schoolPage);
                 $("#search-school-student").val("");
               }
-              // console.log("inin");
+              // // console.log("inin");
               $(".error-message").hide();
               $(".success-message").fadeIn();
               $(".success-message").text(data.message);
@@ -1853,7 +1853,7 @@
               
           //   $("#pagination-college").html("");
           //   $("#load-college-student").html("");
-          //     // console.log(data);
+          //     // // console.log(data);
           //     if(data.status == false){
           //       $("#load-college-student").html("<tr style='height: 4rem'><td colspan='7'><h2>"+ data.message +"</h2></td></tr>");
           //     }else{
@@ -1893,7 +1893,7 @@
       //       success : function(data){
               
       //       $("#load-college-student").html("");
-      //         // console.log(data);
+      //         // // console.log(data);
       //         if(data.status == false){
       //           $("#load-college-student").html("<tr style='height: 4rem'><td colspan='7'><h2>"+ data.message +"</h2></td></tr>");
       //         }else{
@@ -1936,7 +1936,7 @@
 
           //     $("#pagination-school").html("");
           //     $("#load-school-student").html("");
-          //     // console.log(data);
+          //     // // console.log(data);
           //     if(data.status == false){
           //       $("#load-school-student").html("<tr style='height: 4rem'><td colspan='7'><h2>"+ data.message +"</h2></td></tr>");
           //     }else{
@@ -1972,7 +1972,7 @@
         // $("#load-college-student").html("");
         // data: jsonStr, AAMA PAGE ID APISU LATER ON....
         let jsonObjForPagination = {page: page, limit: limit,search:search, ...userRoleObj};
-        console.log(jsonObjForPagination);
+        // console.log(jsonObjForPagination);
         let jsonStrForPagination = JSON.stringify(jsonObjForPagination);
         $.ajax({
           url:"http://localhost/Attendance-system/api/api-search-college-user.php",
@@ -1982,7 +1982,7 @@
             $("#load-college-student").html("");
             $("#pagination-college").html("");
             
-            console.log(data);
+            // console.log(data);
             if(data.status == false){
               $("#load-college-student").html("<tr style='height: 4rem'><td colspan='7'><h2>"+ data.message +"</h2></td></tr>");
             }else{
@@ -2006,7 +2006,7 @@
 
               
                   let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -2059,15 +2059,15 @@
       $(document).on("click","#college-search-page-prev-btn",function(){
         let page = $("#college-search-page-prev-btn").data("prevpage");
         let search = $("#college-search-page-prev-btn").data("search");
-        console.log(page);
-        console.log(search);
+        // console.log(page);
+        // console.log(search);
         searchCollegeStudent(search,page);
       });
       $(document).on("click","#college-search-page-next-btn",function(){
         let page = $("#college-search-page-next-btn").data("nextpage");
         let search = $("#college-search-page-next-btn").data("search");
-        console.log(page);
-        console.log(search);
+        // console.log(page);
+        // console.log(search);
         searchCollegeStudent(search,page);
       });
 
@@ -2087,7 +2087,7 @@
             $("#load-school-student").html("");
             $("#pagination-school").html("");
 
-            console.log(data);
+            // console.log(data);
             if(data.status == false){
               $("#load-school-student").html("<tr style='height: 4rem'><td colspan='7'><h2>"+ data.message +"</h2></td></tr>");
             }else{
@@ -2108,7 +2108,7 @@
               });
               
                   let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -2159,15 +2159,15 @@
       $(document).on("click","#school-search-page-prev-btn",function(){
         let page = $("#school-search-page-prev-btn").data("prevpage");
         let search = $("#school-search-page-prev-btn").data("search");
-        console.log(page);
-        console.log(search);
+        // console.log(page);
+        // console.log(search);
         searchSchoolStudent(search,page);
       });
       $(document).on("click","#school-search-page-next-btn",function(){
         let page = $("#school-search-page-next-btn").data("nextpage");
         let search = $("#school-search-page-next-btn").data("search");
-        console.log(page);
-        console.log(search);
+        // console.log(page);
+        // console.log(search);
         searchSchoolStudent(search,page);
       });
 
@@ -2178,8 +2178,8 @@
       
 
       $(document).on("click",".profile-pic",function(){
-        console.log($(this).attr("src"));
-        console.log("clicked");
+        // console.log($(this).attr("src"));
+        // console.log("clicked");
         $(".show-pp").css("display","flex");
         // $(".show-pp").show();
         $("#show-profile-pic").attr("src",$(this).attr("src"));

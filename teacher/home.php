@@ -177,7 +177,7 @@ require './checkValidity.php';
         type: "POST",
         data: jsonString,
         success: function(data) {
-          console.log(data);
+          // console.log(data);
           if(data[0].subjectTaught==`<p style="color:red">Pending - Yet to be filled by teacher </p>` || data[0].subjectTaught == '[]'|| data[0].subjectTaught == `` ){
             // alert("Please complete your profile first...")
             $(".alert-container").removeClass("d-none");

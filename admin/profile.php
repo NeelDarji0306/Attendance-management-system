@@ -72,7 +72,7 @@
        $(".error-message").hide();
        $(".success-message").fadeIn();
        $(".success-message").text("<?php echo $msg ?>");
-       console.log("<?php echo $msg ?>");
+       // console.log("<?php echo $msg ?>");
        setTimeout(() => {
          $(".success-message").fadeOut();
          window.location = "http://localhost/Attendance-system/admin/profile.php";
@@ -127,11 +127,11 @@
         type: "POST",
         data: jsonString,
         success: function(data) {
-          console.log(data);
+          // console.log(data);
           sessionStorage.setItem('pp', data[0].profilePic);
-          console.log(sessionStorage.getItem('pp'));
+          // console.log(sessionStorage.getItem('pp'));
           sessionStorage.setItem('uname', data[0].firstName + " " + data[0].lastName);
-          console.log(sessionStorage.getItem('uname'));
+          // console.log(sessionStorage.getItem('uname'));
           // $("#load-view-table table").append('<tr><td>hii1</td></tr>');
           // $("#load-view-table table").append('<tr><td>hii2</td></tr>');
           // $("#load-view-table table").append('<tr><td>hii3</td></tr>');
@@ -235,7 +235,7 @@
 
       // to remove profile pic and set it to the default one ----> fix delete modal
       $(document).on("click", "#remove-profile-pic-btn-clg", function() {
-        // console.log(users.length);
+        // // console.log(users.length);
         // it requires to set ```edit-college-teacher-user-id``` id when document is ready
         $("#delete-modal-clg").fadeIn(300);
         let uId = sessionStorage.getItem("userId");
@@ -245,13 +245,13 @@
         $(("#ok-clg-btn")).data("id", uId);
       });
       $(document).on("click", "#ok-clg-btn", function() {
-        // console.log($(this).data("id"));
+        // // console.log($(this).data("id"));
         let uId = $(this).data("id");
         let uIdObj = {
           userId: uId
         };
         let uIdStr = JSON.stringify(uIdObj);
-        // console.log("ok")
+        // // console.log("ok")
         $.ajax({
           url: "http://localhost/Attendance-system/api/api-default-picture.php",
           type: "POST",
@@ -259,10 +259,10 @@
           success: function(data) {
             if (data.status == true) {
               sessionStorage.setItem('pp', 'images/default.jpg');
-              // console.log(users);
+              // // console.log(users);
               $(".container .pic-container").html("<img class='d-block mx-auto mb-3' name='profilePic' src = '../images/default.jpg' alt = 'profile_pic'>");
             }
-            // console.log(data.message);
+            // // console.log(data.message);
           }
 
         });
@@ -279,13 +279,13 @@
         $(("#ok-schl-btn")).data("id", uId);
       });
       $(document).on("click", "#ok-schl-btn", function() {
-        // console.log($(this).data("id"));
+        // // console.log($(this).data("id"));
         let uId = $(this).data("id");
         let uIdObj = {
           userId: uId
         };
         let uIdStr = JSON.stringify(uIdObj);
-        // console.log("ok")
+        // // console.log("ok")
         $.ajax({
           url: "http://localhost/Attendance-system/api/api-default-picture.php",
           type: "POST",
@@ -296,7 +296,7 @@
               sessionStorage.setItem('pp', 'images/default.jpg');
               $(".container .pic-container").html("<img class='d-block mx-auto mb-3' name='profilePic' src = '../images/default.jpg' alt = 'profile_pic'>");
             }
-            // console.log(data.message);
+            // // console.log(data.message);
           }
 
         });

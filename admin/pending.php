@@ -334,7 +334,7 @@
         // $("#load-college-teacher").html("");
         // data: jsonStr, AAMA PAGE ID APISU LATER ON....
         let jsonObjForPagination = {page: page, limit: limit, ...userRoleObj};
-        console.log(jsonObjForPagination);
+        // console.log(jsonObjForPagination);
         let jsonStrForPagination = JSON.stringify(jsonObjForPagination);
         $.ajax({
           url:"http://localhost/Attendance-system/api/api-fetch-pending-college-user.php",
@@ -345,7 +345,7 @@
             $("#load-college-teacher").html("");
             $("#pagination-college-t").html("");
             
-            // console.log(data);
+            // // console.log(data);
             if(data.status == false){
               $("#load-college-teacher").html("<tr style='height: 4rem'><td colspan='7'><h2>No Pending Teachers</h2></td></tr>");
             }else{
@@ -373,7 +373,7 @@
 
               
                 let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -442,12 +442,12 @@
 
       $(document).on("click","#college-page-prev-btn",function(){
         let page = $("#college-page-prev-btn").data("prevpage");
-        console.log(page);
+        // console.log(page);
         loadCollegeTeacher(page);
       });
       $(document).on("click","#college-page-next-btn",function(){
         let page = $("#college-page-next-btn").data("nextpage");
-        console.log(page);
+        // console.log(page);
         loadCollegeTeacher(page);
       });
       function loadSchoolTeacher(page=1,limit=4){
@@ -468,7 +468,7 @@
           success : function(data){
             $("#load-school-teacher").html("");
             $("#pagination-school-t").html("");
-            // console.log(data);
+            // // console.log(data);
             let flag=false;
             if(data.status == false){
               $("#load-school-teacher").html("<tr style='height: 4rem'><td colspan='7'><h2>No Pending Teachers</h2></td></tr>");
@@ -501,7 +501,7 @@
 
               // } else{
                 let len = data[0].len;
-                console.log(len);
+                // console.log(len);
                 
                 let total_record = len;
                 let total_page = Math.ceil(total_record / limit) || 1;
@@ -566,12 +566,12 @@
                 
       $(document).on("click","#school-page-prev-btn",function(){
         let page = $("#school-page-prev-btn").data("prevpage");
-        console.log(page);
+        // console.log(page);
         loadSchoolTeacher(page);
       });
       $(document).on("click","#school-page-next-btn",function(){
         let page = $("#school-page-next-btn").data("nextpage");
-        console.log(page);
+        // console.log(page);
         loadSchoolTeacher(page);
       });
     // to initally load teachers
@@ -586,7 +586,7 @@
         // $("#load-college-student").html("");
         // data: jsonStr, AAMA PAGE ID APISU LATER ON....
         let jsonObjForPagination = {page: page, limit: limit, ...userRoleObj};
-        console.log(jsonObjForPagination);
+        // console.log(jsonObjForPagination);
         let jsonStrForPagination = JSON.stringify(jsonObjForPagination);
         $.ajax({
           url:"http://localhost/Attendance-system/api/api-fetch-pending-college-user.php",
@@ -596,7 +596,7 @@
             $("#load-college-student").html("");
             $("#pagination-college-s").html("");
             
-            console.log(data);
+            // console.log(data);
             if(data.status == false){
               $("#load-college-student").html("<tr style='height: 4rem'><td colspan='7'><h2>No Pending Students</h2></td></tr>");
               
@@ -624,7 +624,7 @@
                                               
                 });
                   let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -682,12 +682,12 @@
 
       $(document).on("click","#college-page-prev-btn",function(){
         let page = $("#college-page-prev-btn").data("prevpage");
-        console.log(page);
+        // console.log(page);
         loadCollegeStudent(page);
       });
       $(document).on("click","#college-page-next-btn",function(){
         let page = $("#college-page-next-btn").data("nextpage");
-        console.log(page);
+        // console.log(page);
         loadCollegeStudent(page);
       });
       function loadSchoolStudent(page=1,limit=4){
@@ -706,7 +706,7 @@
           success : function(data){
             $("#load-school-student").html("");
             $("#pagination-school-s").html("");
-            // console.log(data);
+            // // console.log(data);
             if(data.status == false){
               $("#load-school-student").html("<tr style='height: 4rem'><td colspan='7'><h2>No Pending Students</h2></td></tr>");
             }else{
@@ -733,7 +733,7 @@
                     
                 });
                   let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -785,12 +785,12 @@
                 
       $(document).on("click","#school-page-prev-btn",function(){
         let page = $("#school-page-prev-btn").data("prevpage");
-        console.log(page);
+        // console.log(page);
         loadSchoolStudent(page);
       });
       $(document).on("click","#school-page-next-btn",function(){
         let page = $("#school-page-next-btn").data("nextpage");
-        console.log(page);
+        // console.log(page);
         loadSchoolStudent(page);
       });
       
@@ -812,7 +812,7 @@
           type: "POST",
           data: jsonString,
           success: function(data) {
-            // console.log(data);
+            // // console.log(data);
             // $("#load-view-table table").append('<tr><td>hii1</td></tr>');
             // $("#load-view-table table").append('<tr><td>hii2</td></tr>');
             // $("#load-view-table table").append('<tr><td>hii3</td></tr>');
@@ -1028,7 +1028,7 @@
       
           $(".edit-btn").on("click",function(){
             // e.preventDefault();
-            // console.log($(this).data('uni'));
+            // // console.log($(this).data('uni'));
             if($(this).data('soc')=="college"){
               window.location = `http://localhost/Attendance-system/admin/manage-subject.php?uid=${$(this).data('eid')}&role=${$(this).data('role')}&soc=${$(this).data('soc')}&uni=${$(this).data('uni')}&schlname=${""}`;
               
@@ -1073,8 +1073,8 @@
 
 
       $(document).on("click",".profile-pic",function(){
-        console.log($(this).attr("src"));
-        console.log("clicked");
+        // console.log($(this).attr("src"));
+        // console.log("clicked");
         $(".show-pp").css("display","flex");
         // $(".show-pp").show();
         $("#show-profile-pic").attr("src",$(this).attr("src"));

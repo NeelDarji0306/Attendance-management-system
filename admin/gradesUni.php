@@ -193,7 +193,7 @@
         // $("#load-uni").html("");
         // data: jsonStr, AAMA PAGE ID APISU LATER ON....
         let jsonObjForPagination = {page: page, limit: limit, ...userRoleObj};
-        console.log(jsonObjForPagination);
+        // console.log(jsonObjForPagination);
         let jsonStrForPagination = JSON.stringify(jsonObjForPagination);
         $.ajax({
           url:"http://localhost/Attendance-system/api/api-fetch-uni-clg.php",
@@ -203,7 +203,7 @@
             $("#load-uni").html("");
             $("#pagination-uni").html("");
             
-            // console.log(data);
+            // // console.log(data);
             if(data.status == false){
               $("#load-uni").html("<tr style='height: 4rem'><td colspan='4'><h2>"+ data.message +"</h2></td></tr>");
             }else{
@@ -283,7 +283,7 @@
               // }
 
                   let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -350,12 +350,12 @@
 
       $(document).on("click","#uni-page-prev-btn",function(){
         let page = $("#uni-page-prev-btn").data("prevpage");
-        console.log(page);
+        // console.log(page);
         loadUniClg(page);
       });
       $(document).on("click","#uni-page-next-btn",function(){
         let page = $("#uni-page-next-btn").data("nextpage");
-        console.log(page);
+        // console.log(page);
         loadUniClg(page);
       });
       function loadSchoolType(page=1,limit=4){
@@ -371,7 +371,7 @@
           success : function(data){
             $("#load-grades").html("");
             $("#pagination-grades").html("");
-            // console.log(data);
+            // // console.log(data);
             if(data.status == false){
               $("#load-grades").html("<tr style='height: 4rem'><td colspan='4'><h2>"+ data.message +"</h2></td></tr>");
             }else{
@@ -390,7 +390,7 @@
               });
               
                   let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -454,12 +454,12 @@
                 
       $(document).on("click","#grades-page-prev-btn",function(){
         let page = $("#grades-page-prev-btn").data("prevpage");
-        console.log(page);
+        // console.log(page);
         loadSchoolType(page);
       });
       $(document).on("click","#grades-page-next-btn",function(){
         let page = $("#grades-page-next-btn").data("nextpage");
-        console.log(page);
+        // console.log(page);
         loadSchoolType(page);
       });
 
@@ -538,7 +538,7 @@
       //     type:"POST",
       //     data: jsonString,
       //     success : function(data){
-      //       console.log(data);
+      //       // console.log(data);
       //       // $("#load-view-table table").append('<tr><td>hii1</td></tr>');
       //       // $("#load-view-table table").append('<tr><td>hii2</td></tr>');
       //       // $("#load-view-table table").append('<tr><td>hii3</td></tr>');
@@ -629,7 +629,7 @@
                 
       //         }
       //         // if(value.collegeId==null){
-      //         //   console.log("clg");
+      //         //   // console.log("clg");
       //         // }
       //       });
       //     }
@@ -667,10 +667,10 @@
       //       processData: false,
       //       async:false,
       //       success : function(data){
-      //         // console.log(data);
-      //         // console.log(data[0].role);
+      //         // // console.log(data);
+      //         // // console.log(data[0].role);
       //         if(data.status == false){
-      //           // console.log("in");
+      //           // // console.log("in");
       //           $(".success-message").hide();
       //           $(".error-message").fadeIn();
       //           $(".error-message").text(data.message);
@@ -680,18 +680,18 @@
       //         } else{
       //           // onLoad();
       //           if(data.soc == "college"){
-      //             console.log("lctu");
+      //             // console.log("lctu");
       //             loadUniClg(uniPage);
       //             // to avoid the confusion we are clearing the search thing...
       //             $("#search-uni").val("");
       //           } 
       //           if(data.soc == "school"){
-      //             console.log("lstu");
+      //             // console.log("lstu");
       //             loadSchoolType(gradesPage);
       //             // to avoid the confusion we are clearing the search thing...
       //             $("#search-grades").val("");
       //           }
-      //           // console.log("inin");
+      //           // // console.log("inin");
       //           $(".error-message").hide();
       //           $(".success-message").fadeIn();
       //           $(".success-message").text(data.message);
@@ -844,10 +844,10 @@
             type:"POST",
             data: addJsonStr,
             success : function(data){
-              console.log(data);
-              // console.log(data[0].role);
+              // console.log(data);
+              // // console.log(data[0].role);
               if(data.status == false){
-                // console.log("in");
+                // // console.log("in");
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
                 $(".error-message").text(data.message);
@@ -857,7 +857,7 @@
               } else{
                 // loadUniClg(uniPage);
                 loadUniClg(1); //aa pn chale coz aapde obviously page no. 1, je by default load thse, ene j load krvanu che
-                // console.log("inin");
+                // // console.log("inin");
                 $(".error-message").hide();
                 $(".success-message").fadeIn();
                 $(".success-message").text(data.message);
@@ -889,7 +889,7 @@
         let schoolType = $("#schoolType").val();
         let schoolName = $("#schoolName").val();
         // if nothing is entered by the user and he clicks login 
-        console.log(city + " " + schoolType + " " + schoolName)
+        // console.log(city + " " + schoolType + " " + schoolName)
         if((city==null || city==undefined || city.trim()=="") || schoolType==null || schoolName.trim()==""){
           $(".success-message").hide();
           $(".error-message").fadeIn();
@@ -912,10 +912,10 @@
             type:"POST",
             data: addJsonStr,
             success : function(data){
-              console.log(data);
-              // console.log(data[0].role);
+              // console.log(data);
+              // // console.log(data[0].role);
               if(data.status == false){
-                // console.log("in");
+                // // console.log("in");
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
                 $(".error-message").text(data.message);
@@ -926,7 +926,7 @@
                 
                 // loadSchoolType(gradesPage);
                 loadSchoolType(1); //aa pn chale coz aapde obviously page no. 1, je by default load thse, ene j load krvanu che
-                // console.log("inin");
+                // // console.log("inin");
                 $(".error-message").hide();
                 $(".success-message").fadeIn();
                 $(".success-message").text(data.message);
@@ -965,15 +965,15 @@
         // alert(schlOrClg);
       });
       $(document).on("click","#ok-btn",function(){
-        // console.log($(this).data("id"));
-        // console.log($(this).data("soc"));
+        // // console.log($(this).data("id"));
+        // // console.log($(this).data("soc"));
         let cos = $(this).data("cos");
         let deleteObj = {};
         if($(this).data("cos")=="c"){
-          // console.log("clg " + $(this).data("clgid"));
+          // // console.log("clg " + $(this).data("clgid"));
           deleteObj = {id : $(this).data("clgid"), cos : "c"};
         } else{
-          // console.log("school " + $(this).data("sid"));
+          // // console.log("school " + $(this).data("sid"));
           deleteObj = {id : $(this).data("sid"), cos : "s"};
         }
         let deleteStr = JSON.stringify(deleteObj);
@@ -984,7 +984,7 @@
           async:false,
           success : function(data){
             if(data.status == false){
-              // console.log("in");
+              // // console.log("in");
               $(".success-message").hide();
               $(".error-message").fadeIn();
               $(".error-message").text(data.message);
@@ -993,18 +993,18 @@
               }, 4000);
             } else{
               // onLoad();
-              // console.log(users);
+              // // console.log(users);
               users.pop();
-              // console.log(users);
+              // // console.log(users);
               if(cos == "c"){
-                console.log("c");
+                // console.log("c");
                 loadUniClg(uniPage);
               } 
               if(cos == "s"){
-                console.log("s");
+                // console.log("s");
                 loadSchoolType(gradesPage);
               }
-              // console.log("inin");
+              // // console.log("inin");
               $(".error-message").hide();
               $(".success-message").fadeIn();
               $(".success-message").text(data.message);
@@ -1043,7 +1043,7 @@
               
           //   $("#pagination-uni").html("");
           //   $("#load-uni").html("");
-          //     // console.log(data);
+          //     // // console.log(data);
           //     if(data.status == false){
           //       $("#load-uni").html("<tr style='height: 4rem'><td colspan='4'><h2>"+ data.message +"</h2></td></tr>");
           //     }else{
@@ -1075,7 +1075,7 @@
         // $("#load-uni").html("");
         // data: jsonStr, AAMA PAGE ID APISU LATER ON....
         let jsonObjForPagination = {page: page, limit: limit,search:search, ...userRoleObj};
-        console.log(jsonObjForPagination);
+        // console.log(jsonObjForPagination);
         let jsonStrForPagination = JSON.stringify(jsonObjForPagination);
         $.ajax({
           url:"http://localhost/Attendance-system/api/api-search-uni-college.php",
@@ -1085,7 +1085,7 @@
             $("#load-uni").html("");
             $("#pagination-uni").html("");
             
-            // console.log(data);
+            // // console.log(data);
             if(data.status == false){
               $("#load-uni").html("<tr style='height: 4rem'><td colspan='4'><h2>"+ data.message +"</h2></td></tr>");
             }else{
@@ -1107,7 +1107,7 @@
 
               
                   let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -1174,15 +1174,15 @@
       $(document).on("click","#uni-search-page-prev-btn",function(){
         let page = $("#uni-search-page-prev-btn").data("prevpage");
         let search = $("#uni-search-page-prev-btn").data("search");
-        console.log(page);
-        console.log(search);
+        // console.log(page);
+        // console.log(search);
         searchUniClg(search,page);
       });
       $(document).on("click","#uni-search-page-next-btn",function(){
         let page = $("#uni-search-page-next-btn").data("nextpage");
         let search = $("#uni-search-page-next-btn").data("search");
-        console.log(page);
-        console.log(search);
+        // console.log(page);
+        // console.log(search);
         searchUniClg(search,page);
       });
       //same thing USING GET REQUESTTTTTTTTTTTTTTTTTt
@@ -1196,7 +1196,7 @@
       //       success : function(data){
               
       //       $("#load-uni").html("");
-      //         // console.log(data);
+      //         // // console.log(data);
       //         if(data.status == false){
       //           $("#load-uni").html("<tr style='height: 4rem'><td colspan='4'><h2>"+ data.message +"</h2></td></tr>");
       //         }else{
@@ -1239,7 +1239,7 @@
 
           //     $("#pagination-grades").html("");
           //     $("#load-grades").html("");
-          //     console.log(data);
+          //     // console.log(data);
           //     if(data.status == false){
           //       $("#load-grades").html("<tr style='height: 4rem'><td colspan='4'><h2>"+ data.message +"</h2></td></tr>");
           //     }else{
@@ -1258,7 +1258,7 @@
                   
           //       });
           //         let len_st = data[0].len;
-          //         console.log(len_st);
+          //         // console.log(len_st);
           //         let limit_st = 4;
           //         let total_record_st = len_st;
           //         let total_page_st = Math.ceil(total_record_st / limit_st) || 1;
@@ -1336,7 +1336,7 @@
           success : function(data){
             $("#load-grades").html("");
             $("#pagination-grades").html("");
-            // console.log(data);
+            // // console.log(data);
             if(data.status == false){
               $("#load-grades").html("<tr style='height: 4rem'><td colspan='4'><h2>"+ data.message +"</h2></td></tr>");
             }else{
@@ -1355,7 +1355,7 @@
               });
 
                   let len = data[0].len;
-                  console.log(len);
+                  // console.log(len);
                   
                   let total_record = len;
                   let total_page = Math.ceil(total_record / limit) || 1;
@@ -1419,15 +1419,15 @@
       $(document).on("click","#grades-search-page-prev-btn",function(){
         let page = $("#grades-search-page-prev-btn").data("prevpage");
         let search = $("#grades-search-page-prev-btn").data("search");
-        console.log(page);
-        console.log(search);
+        // console.log(page);
+        // console.log(search);
         searchSchoolType(search,page);
       });
       $(document).on("click","#grades-search-page-next-btn",function(){
         let page = $("#grades-search-page-next-btn").data("nextpage");
         let search = $("#grades-search-page-next-btn").data("search");
-        console.log(page);
-        console.log(search);
+        // console.log(page);
+        // console.log(search);
         searchSchoolType(search,page);
       });
 

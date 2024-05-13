@@ -331,19 +331,19 @@ require './checkValidity.php';
           type: "POST",
           data: jsonString,
           success: function(data) {
-            console.log(data);
+            // console.log(data);
             sessionStorage.setItem("teacherId", data[0].teacherId);
             if (data[0].subjectTaught == `<p style="color:red">Pending - Yet to be filled by teacher </p>`|| data[0].subjectTaught == '[]'|| data[0].subjectTaught == ``) {
               // alert("Please complete your profile first...")
-              console.log("Need to addd");
+              // console.log("Need to addd");
               $("#view-college-subject").html("");
               $("#view-school-subject").html("");
 
             } else {
               
               let sub = JSON.parse(data[0].subjectTaught);
-              console.log(sub);
-              console.log("you can remove or add");
+              // console.log(sub);
+              // console.log("you can remove or add");
               if (soc == "college") {
                 $("#view-college-subject").html(`<div class="msg fs-3 pb-3">Subjects taken by you in respective department</div>`);
                 $.each(sub, function(key, value) {
@@ -471,13 +471,13 @@ require './checkValidity.php';
           type: "POST",
           data: loadSubStr,
           success: function(data) {
-            // console.log(data);
+            // // console.log(data);
             if (data.status == false) {
               $(id).append(`<option value="${data.message}">${data.message}</option>`);
             } else {
               // splitting data into array of subjucts
               data = data[0].sub.split(",");
-              // console.log(data)
+              // // console.log(data)
 
             }
             $.each(data, function(key, value) {
@@ -504,9 +504,9 @@ require './checkValidity.php';
         defaultClgSub();
         // if($("#sem").val()!=null && $("#dep").val()!=null){
         loadClgSub("#subject", $("#sem").val(), uni, $("#dep").val());
-        // console.log(uni)
-        // console.log($("#sem").val())
-        // console.log($("#dep").val())
+        // // console.log(uni)
+        // // console.log($("#sem").val())
+        // // console.log($("#dep").val())
 
         // }
       });
@@ -514,9 +514,9 @@ require './checkValidity.php';
         defaultClgSub();
         // if($("#sem").val()!=null && $("#dep").val()!=null){
         loadClgSub("#subject", $("#sem").val(), uni, $("#dep").val());
-        // console.log(uni)
-        // console.log($("#sem").val())
-        // console.log($("#dep").val())
+        // // console.log(uni)
+        // // console.log($("#sem").val())
+        // // console.log($("#dep").val())
 
         // }
       });
@@ -536,13 +536,13 @@ require './checkValidity.php';
           type: "POST",
           data: loadSubStr,
           success: function(data) {
-            console.log(data);
+            // console.log(data);
             if (data.status == false) {
               $(id).append(`<option value="${data.message}">${data.message}</option>`);
             } else {
               // splitting data into array of subjucts
               data = data[0].sub.split(",");
-              // console.log(data)
+              // // console.log(data)
 
             }
             $.each(data, function(key, value) {
@@ -570,9 +570,9 @@ require './checkValidity.php';
         defaultSchlSub();
         // if($("#sem").val()!=null && $("#dep").val()!=null){
         loadSchlSub("#subject", $("#std").val(), schlname);
-        console.log(schlname)
-        // console.log($("#sem").val())
-        // console.log($("#dep").val())
+        // console.log(schlname)
+        // // console.log($("#sem").val())
+        // // console.log($("#dep").val())
 
         // }
       });
@@ -600,7 +600,7 @@ require './checkValidity.php';
             sub: $("#subject").val(),
             tid: sessionStorage.getItem("teacherId"), // aama by default j string che
           } // no use of userRoleObj
-          // console.log(obj);
+          // // console.log(obj);
           let jsonString = JSON.stringify(obj);
           let actualJson = {
             jstring: jsonString,
@@ -612,9 +612,9 @@ require './checkValidity.php';
             type: "POST",
             data: actualJsonStr,
             success: function(data) {
-              console.log(data);
+              // console.log(data);
               if (data.status == false) {
-                // console.log("in");
+                // // console.log("in");
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
                 $(".error-message").text(data.message);
@@ -658,7 +658,7 @@ require './checkValidity.php';
             sub: $("#subject").val(),
             tid: sessionStorage.getItem("teacherId"), // aama by default j string che
           } // no use of userRoleObj
-          console.log(obj);
+          // console.log(obj);
           let jsonString = JSON.stringify(obj);
           let actualJson = {
             jstring: jsonString,
@@ -670,9 +670,9 @@ require './checkValidity.php';
             type: "POST",
             data: actualJsonStr,
             success: function(data) {
-              console.log(data);
+              // console.log(data);
               if (data.status == false) {
-                // console.log("in");
+                // // console.log("in");
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
                 $(".error-message").text(data.message);
@@ -712,13 +712,13 @@ require './checkValidity.php';
       //   $(("#ok-schl-btn")).data("id", uId);
       //   });
       //   $(document).on("click", "#ok-schl-btn", function() {
-      //   // console.log($(this).data("id"));
+      //   // // console.log($(this).data("id"));
       //   let uId = $(this).data("id");
       //   let uIdObj = {
       //     userId: uId
       //   };
       //   let uIdStr = JSON.stringify(uIdObj);
-      //   // console.log("ok")
+      //   // // console.log("ok")
       //   $.ajax({
       //     url: "http://localhost/Attendance-system/api/api-default-picture.php",
       //     type: "POST",
@@ -728,7 +728,7 @@ require './checkValidity.php';
   
       //         $("#edit-form .pic-container").html("<img name='profilePic' src = '../images/default.jpg' alt = 'profile_pic' height = '200px'> <input type='file' name='profile-picture' id='profile-picture'>");
       //       }
-      //       // console.log(data.message);
+      //       // // console.log(data.message);
       //     }
   
       //   });
@@ -752,16 +752,16 @@ require './checkValidity.php';
       //     tid: $(this).data("tid")
       //   };
       //   let actualJsonStr = JSON.stringify(actualJson);
-      //   console.log(obj);
-      //   console.log(actualJson);
+      //   // console.log(obj);
+      //   // console.log(actualJson);
       //   $.ajax({
       //     url: "http://localhost/Attendance-system/api/api-remove-clg-subject.php",
       //     type: "POST",
       //     data: actualJsonStr,
       //     success: function(data) {
-      //       console.log(data);
+      //       // console.log(data);
       //       if (data.status == false) {
-      //         // console.log("in");
+      //         // // console.log("in");
       //         $(".success-message").hide();
       //         $(".error-message").fadeIn();
       //         $(".error-message").text(data.message);
@@ -802,29 +802,29 @@ require './checkValidity.php';
         let jsonString = JSON.stringify(obj);
         let actualJson = {jstring: jsonString, tid:$(this).data("tid")};
         let actualJsonStr = JSON.stringify(actualJson);
-        // console.log(obj);
-        // console.log(actualJson);
+        // // console.log(obj);
+        // // console.log(actualJson);
         // let uIdObj = {userId : uId};
         // let uIdStr = JSON.stringify(uIdObj);
 
         $(("#ok-clg-btn")).data("jsnoStr", actualJsonStr);
       });
       $(document).on("click", "#ok-clg-btn", function() {
-        console.log($(this).data("jsnoStr"));
+        // console.log($(this).data("jsnoStr"));
         let actualJsonStr = $(this).data("jsnoStr");
         // let obj = JSON.parse(actualJsonStr);
-        // console.log(obj);
+        // // console.log(obj);
         // let str = JSON.stringify(obj);
-        // console.log(actualJsonStr);
-        // console.log(str);
+        // // console.log(actualJsonStr);
+        // // console.log(str);
         $.ajax({
             url: "http://localhost/Attendance-system/api/api-remove-clg-subject.php",
             type: "POST",
             data: actualJsonStr,
             success: function(data) {
-              console.log(data);
+              // console.log(data);
               if (data.status == false) {
-                // console.log("in");
+                // // console.log("in");
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
                 $(".error-message").text(data.message);
@@ -859,29 +859,29 @@ require './checkValidity.php';
         let jsonString = JSON.stringify(obj);
         let actualJson = {jstring: jsonString, tid:$(this).data("tid")};
         let actualJsonStr = JSON.stringify(actualJson);
-        // console.log(obj);
-        // console.log(actualJson);
+        // // console.log(obj);
+        // // console.log(actualJson);
         // let uIdObj = {userId : uId};
         // let uIdStr = JSON.stringify(uIdObj);
 
         $(("#ok-schl-btn")).data("jsnoStr", actualJsonStr);
       });
       $(document).on("click", "#ok-schl-btn", function() {
-        console.log($(this).data("jsnoStr"));
+        // console.log($(this).data("jsnoStr"));
         let actualJsonStr = $(this).data("jsnoStr");
         // let obj = JSON.parse(actualJsonStr);
-        // console.log(obj);
+        // // console.log(obj);
         // let str = JSON.stringify(obj);
-        // console.log(actualJsonStr);
-        // console.log(str);
+        // // console.log(actualJsonStr);
+        // // console.log(str);
         $.ajax({
             url: "http://localhost/Attendance-system/api/api-remove-schl-subject.php",
             type: "POST",
             data: actualJsonStr,
             success: function(data) {
-              console.log(data);
+              // console.log(data);
               if (data.status == false) {
-                // console.log("in");
+                // // console.log("in");
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
                 $(".error-message").text(data.message);

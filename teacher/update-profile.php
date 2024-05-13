@@ -69,16 +69,16 @@ require './checkValidity.php';
         schoolOrCollege: soc,
         userRole: uRole
       } // no use of userRoleObj
-      // console.log(soc); 
+      // // console.log(soc); 
       let jsonString = JSON.stringify(obj);
       $.ajax({
         url: "http://localhost/Attendance-system/api/api-get-user-by-userId-and-schoolOrCollege.php",
         type: "POST",
         data: jsonString,
         success: function(data) {
-          console.log(data);
+          // console.log(data);
           // $.session.set("pp", data[0].profilePic);
-          // console.log($.session.get("pp"))
+          // // console.log($.session.get("pp"))
           // sessionStorage.pp = data[0].profilePic
           // $("#load-view-table table").append('<tr><td>hii1</td></tr>');
           $.each(data, function(key, value) {
@@ -229,10 +229,10 @@ require './checkValidity.php';
             processData: false,
             async: false,
             success: function(data) {
-              console.log(data);
-              // console.log(data[0].role);
+              // console.log(data);
+              // // console.log(data[0].role);
               if (data.status == false) {
-                // console.log("in");
+                // // console.log("in");
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
                 $(".error-message").text(data.message);
@@ -245,7 +245,7 @@ require './checkValidity.php';
 
                 // if(($("#fname").val() != '') || ($("#lname").val() == '' )){
                 //   sessionStorage.setItem('uname', $("#fname").val() + " " + $("#lname").val());
-                //   // console.log(sessionStorage.getItem('uname'));
+                //   // // console.log(sessionStorage.getItem('uname'));
                 // }
 
 
@@ -602,7 +602,7 @@ require './checkValidity.php';
 
       // to remove profile pic and set it to the default one ----> fix delete modal
       $(document).on("click", "#remove-profile-pic-btn-clg", function() {
-        // console.log(users.length);
+        // // console.log(users.length);
         // it requires to set ```edit-college-teacher-user-id``` id when document is ready
         $("#delete-modal-clg").fadeIn(300);
         let uId = sessionStorage.getItem("userId");
@@ -612,13 +612,13 @@ require './checkValidity.php';
         $(("#ok-clg-btn")).data("id", uId);
       });
       $(document).on("click", "#ok-clg-btn", function() {
-        // console.log($(this).data("id"));
+        // // console.log($(this).data("id"));
         let uId = $(this).data("id");
         let uIdObj = {
           userId: uId
         };
         let uIdStr = JSON.stringify(uIdObj);
-        // console.log("ok")
+        // // console.log("ok")
         $.ajax({
           url: "http://localhost/Attendance-system/api/api-default-picture.php",
           type: "POST",
@@ -626,10 +626,10 @@ require './checkValidity.php';
           success: function(data) {
             if (data.status == true) {
               sessionStorage.setItem('pp', 'images/default.jpg');
-              // console.log(users);
+              // // console.log(users);
               $("#edit-form .pic-container").html(`<img class='d-block mx-auto mb-3' name='profilePic' src = '../images/default.jpg' alt = 'profile_pic'> <input type='file' class='d-block mx-auto mb-3' name='profile-picture' id='profile-picture'>`);
             }
-            // console.log(data.message);
+            // // console.log(data.message);
           }
 
         });
@@ -650,13 +650,13 @@ require './checkValidity.php';
         $(("#ok-schl-btn")).data("id", uId);
       });
       $(document).on("click", "#ok-schl-btn", function() {
-        // console.log($(this).data("id"));
+        // // console.log($(this).data("id"));
         let uId = $(this).data("id");
         let uIdObj = {
           userId: uId
         };
         let uIdStr = JSON.stringify(uIdObj);
-        // console.log("ok")
+        // // console.log("ok")
         $.ajax({
           url: "http://localhost/Attendance-system/api/api-default-picture.php",
           type: "POST",
@@ -667,7 +667,7 @@ require './checkValidity.php';
               sessionStorage.setItem('pp', 'images/default.jpg');
               $("#edit-form .pic-container").html(`<img class='d-block mx-auto mb-3' name='profilePic' src = '../images/default.jpg' alt = 'profile_pic'> <input type='file' class='d-block mx-auto mb-3' name='profile-picture' id='profile-picture'>`);
             }
-            // console.log(data.message);
+            // // console.log(data.message);
           }
 
         });

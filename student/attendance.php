@@ -174,7 +174,7 @@
       // sessionStorage.setItem("userId", uId);
 
       
-      console.log(uId,role,soc);
+      // console.log(uId,role,soc);
 
       onLoad();
 
@@ -193,11 +193,11 @@
           data: jsonString,
           async:false,
           success: function(data) {
-            console.log(data);  
+            // console.log(data);  
             $.each(data,function(key,value){
               g_obj[key]=value;
             });
-            console.log(g_obj);
+            // console.log(g_obj);
             if(soc=="college"){
               loadClgAttendance(g_obj[0].branch,g_obj[0].sem,g_obj[0].college_id);
 
@@ -209,9 +209,9 @@
       }
 
       function loadClgAttendance(dep,sem,clgid){
-        console.log(dep);
-        console.log(sem);
-        console.log(clgid);
+        // console.log(dep);
+        // console.log(sem);
+        // console.log(clgid);
         let obj = {
           dep: dep,
           sem: sem,
@@ -225,21 +225,21 @@
           async:false,
           success: function(data) {
             // loadClgSub(".no-where",g_obj[0].sem,g_obj[0].university_id,g_obj[0].branch);
-            // console.log(g_sub);
+            // // console.log(g_sub);
 
-            // console.log(data);
-            // console.log(g_sub.length);
+            // // console.log(data);
+            // // console.log(g_sub.length);
             // for(i = 0; i < g_sub.length ; i++){
-            //   console.log("h");
+            //   // console.log("h");
             // }
             // var parentDiv = document.getElementById("flex-container");
             // var childDivs = parentDiv.children;
-            // console.log(childDivs.length);
+            // // console.log(childDivs.length);
             // for (var i = 0; i < childDivs.length; i++) {
             //     // Do something with each child div
-            //     console.log(childDivs[i]);
+            //     // console.log(childDivs[i]);
             // }// Assuming 'data' is the array you provided
-            console.log(data);
+            // console.log(data);
             let subjects = [];
 
             data.forEach(function(item) {
@@ -248,7 +248,7 @@
                 }
             });
 
-            console.log(subjects);
+            // console.log(subjects);
             // let totalClassesAttended = 0;
             // let totalClassesHeld = 0;
 
@@ -291,7 +291,7 @@
                     attendancePercentages[subject] = attendancePercentage.toFixed(2); // Rounds to 2 decimal places
                 }
             }
-            console.log(attendancePercentages);
+            // console.log(attendancePercentages);
 
 
             // drawing pie chart
@@ -354,8 +354,8 @@
       }
 
       function loadSchlAttendance(std,schlid){
-        console.log(std);
-        console.log(schlid);
+        // console.log(std);
+        // console.log(schlid);
         let obj = {
           std: std,
           schlid: schlid
@@ -368,21 +368,21 @@
           async:false,
           success: function(data) {
             // loadClgSub(".no-where",g_obj[0].sem,g_obj[0].university_id,g_obj[0].branch);
-            // console.log(g_sub);
+            // // console.log(g_sub);
 
-            // console.log(data);
-            // console.log(g_sub.length);
+            // // console.log(data);
+            // // console.log(g_sub.length);
             // for(i = 0; i < g_sub.length ; i++){
-            //   console.log("h");
+            //   // console.log("h");
             // }
             // var parentDiv = document.getElementById("flex-container");
             // var childDivs = parentDiv.children;
-            // console.log(childDivs.length);
+            // // console.log(childDivs.length);
             // for (var i = 0; i < childDivs.length; i++) {
             //     // Do something with each child div
-            //     console.log(childDivs[i]);
+            //     // console.log(childDivs[i]);
             // }// Assuming 'data' is the array you provided
-            console.log(data);
+            // console.log(data);
             let subjects = [];
 
             data.forEach(function(item) {
@@ -391,7 +391,7 @@
                 }
             });
 
-            console.log(subjects);
+            // console.log(subjects);
             // let totalClassesAttended = 0;
             // let totalClassesHeld = 0;
 
@@ -434,7 +434,7 @@
                     attendancePercentages[subject] = attendancePercentage.toFixed(2); // Rounds to 2 decimal places
                 }
             }
-            console.log(attendancePercentages);
+            // console.log(attendancePercentages);
 
 
             // drawing pie chart
@@ -511,13 +511,13 @@
       //     type: "POST",
       //     data: loadSubStr,
       //     success: function(data) {
-      //       // console.log(data);
+      //       // // console.log(data);
       //       if (data.status == false) {
       //         $(id).append(`<div id="${data.message}" data-value="${data.message}">${data.message}</div>`);
       //       } else {
       //         // splitting data into array of subjucts
       //         data = data[0].sub.split(",");
-      //         // console.log(data)
+      //         // // console.log(data)
 
       //       }
             
@@ -545,9 +545,9 @@
       //   defaultClgSub();
       //   // if($("#sem").val()!=null && $("#dep").val()!=null){
       //   loadClgSub("#sub_c", $("#sem").val(), $("#uni").val(), $("#dep").val());
-      //   // console.log(uni)
-      //   // console.log($("#sem").val())
-      //   // console.log($("#dep").val())
+      //   // // console.log(uni)
+      //   // // console.log($("#sem").val())
+      //   // // console.log($("#dep").val())
 
       //   // }
       // });
@@ -555,9 +555,9 @@
       //   defaultClgSub();
       //   // if($("#sem").val()!=null && $("#dep").val()!=null){
       //   loadClgSub("#sub_c", $("#sem").val(), $("#uni").val(), $("#dep").val());
-      //   // console.log(uni)
-      //   // console.log($("#sem").val())
-      //   // console.log($("#dep").val())
+      //   // // console.log(uni)
+      //   // // console.log($("#sem").val())
+      //   // // console.log($("#dep").val())
 
       //   // }
       // });
@@ -565,9 +565,9 @@
       //   defaultClgSub();
       //   // if($("#sem").val()!=null && $("#dep").val()!=null){
       //   loadClgSub("#sub_c", $("#sem").val(), $("#uni").val(), $("#dep").val());
-      //   // console.log(uni)
-      //   // console.log($("#sem").val())
-      //   // console.log($("#dep").val())
+      //   // // console.log(uni)
+      //   // // console.log($("#sem").val())
+      //   // // console.log($("#dep").val())
 
       //   // }
       // });
@@ -587,13 +587,13 @@
       //     type: "POST",
       //     data: loadSubStr,
       //     success: function(data) {
-      //       console.log(data);
+      //       // console.log(data);
       //       if (data.status == false) {
       //         $(id).append(`<option value="${data.message}">${data.message}</option>`);
       //       } else {
       //         // splitting data into array of subjucts
       //         data = data[0].sub.split(",");
-      //         // console.log(data)
+      //         // // console.log(data)
 
       //       }
       //       $.each(data, function(key, value) {
@@ -627,9 +627,9 @@
       //   defaultSchlSub();
       //   // if($("#sem").val()!=null && $("#dep").val()!=null){
       //   loadSchlSub("#sub_s", $("#grade").val(), $("#schl").val());
-      //   // console.log(schlname)grade
-      //   // console.log($("#sem").val())
-      //   // console.log($("#dep").val())
+      //   // // console.log(schlname)grade
+      //   // // console.log($("#sem").val())
+      //   // // console.log($("#dep").val())
 
       //   // }
       // });

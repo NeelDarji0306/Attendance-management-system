@@ -183,7 +183,7 @@ require './checkValidity.php';
         type: "POST",
         data: jsonString,
         success: function(data) {
-          console.log(data);
+          // console.log(data);
           if(data[0].subjectTaught==`<p style="color:red">Pending - Yet to be filled by teacher </p>` || data[0].subjectTaught == '[]'|| data[0].subjectTaught == `` ){
             // alert("Please complete your profile first...")
             $(".alert-container").removeClass("d-none");
@@ -250,12 +250,12 @@ require './checkValidity.php';
           let tid = $(this).data("tid");
           let laborlec = $(this).data("laborlec");
           let clgid = $(this).data("clgid");
-          console.log(dep);
-          console.log(sem);
-          console.log(sub);
-          console.log(tid);
-          console.log(laborlec);
-          console.log(clgid);
+          // console.log(dep);
+          // console.log(sem);
+          // console.log(sub);
+          // console.log(tid);
+          // console.log(laborlec);
+          // console.log(clgid);
           g_dep = dep;
           $(".main-container").html("");
           $(".main-container").html(
@@ -311,7 +311,7 @@ document.getElementById('date-for-attendance').value = formattedDate;
             type: "POST",
             data: jsonString,
             success: function(data) {
-              // console.log(data);
+              // // console.log(data);
               
             $("#load-college-student").html("");
             $("#pagination-college").html("");
@@ -324,7 +324,7 @@ document.getElementById('date-for-attendance').value = formattedDate;
               $(".table-title").html(`${g_schlName}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;${g_class} (Students List)`);
   
             }
-            console.log(data);
+            // console.log(data);
               if(data.status == false){
                 $("#load-college-student").html("<tr style='height: 4rem'><td colspan='5'><h2>"+ data.message +"</h2></td></tr>");
               }else{
@@ -352,10 +352,10 @@ document.getElementById('date-for-attendance').value = formattedDate;
           let sub = $(this).data("sub");
           let tid = $(this).data("tid");
           let schlid = $(this).data("schlid");
-          console.log(std);
-          console.log(sub);
-          console.log(tid);
-          console.log(schlid);
+          // console.log(std);
+          // console.log(sub);
+          // console.log(tid);
+          // console.log(schlid);
           g_class = std;
 
           $(".main-container").html("");
@@ -410,7 +410,7 @@ document.getElementById('date-for-attendance').value = formattedDate;
             type: "POST",
             data: jsonString,
             success: function(data) {
-              // console.log(data);
+              // // console.log(data);
               
             $("#load-school-student").html("");
             $("#pagination-school").html("");
@@ -423,7 +423,7 @@ document.getElementById('date-for-attendance').value = formattedDate;
               $(".table-title").html(`${g_schlName}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;${g_class} (Students List)`);
   
             }
-            console.log(data);
+            // console.log(data);
               if(data.status == false){
                 $("#load-school-student").html("<tr style='height: 4rem'><td colspan='5'><h2>"+ data.message +"</h2></td></tr>");
               }else{
@@ -465,8 +465,8 @@ document.getElementById('date-for-attendance').value = formattedDate;
 
       
       $(document).on("click",".profile-pic",function(){
-        console.log($(this).attr("src"));
-        console.log("clicked");
+        // console.log($(this).attr("src"));
+        // console.log("clicked");
         $(".show-pp").css("display","flex");
         // $(".show-pp").show();
         $("#show-profile-pic").attr("src",$(this).attr("src"));
@@ -481,34 +481,34 @@ document.getElementById('date-for-attendance').value = formattedDate;
 
       // submitting college attendance
       $(document).on("click","#submit-college-attendance",function(){
-        // console.log("c");
-        // console.log(g_obj);
+        // // console.log("c");
+        // // console.log(g_obj);
         var radios = document.querySelectorAll('input[type="radio"]');
         let presentNumbers = [];
-        // console.log(radios);
+        // // console.log(radios);
         radios.forEach(function(radio) {
             // Add event listener for change event
             
-            // console.log(radio);
+            // // console.log(radio);
                 if (radio.checked) {
                     if(radio.value != "absent"){
-                      // console.log('Selected value:', radio.value); 
+                      // // console.log('Selected value:', radio.value); 
                       presentNumbers.push(radio.value);
                     }
 
                 }
         });
-        console.log(presentNumbers);
+        // console.log(presentNumbers);
         g_obj['present']=presentNumbers;
         g_obj['date']=$("#date-for-attendance").val();
-        console.log(g_obj);
+        // console.log(g_obj);
         let jsonString = JSON.stringify(g_obj);
         $.ajax({
             url: "http://localhost/Attendance-system/api/api-submit-college-attendance.php",
             type: "POST",
             data: jsonString,
             success: function(data) {
-              console.log(data);
+              // console.log(data);
               if(data.status == false){
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
@@ -533,34 +533,34 @@ document.getElementById('date-for-attendance').value = formattedDate;
       
       // submitting school attendance
       $(document).on("click","#submit-school-attendance",function(){
-        // console.log("c");
-        // console.log(g_obj);
+        // // console.log("c");
+        // // console.log(g_obj);
         var radios = document.querySelectorAll('input[type="radio"]');
         let presentNumbers = [];
-        // console.log(radios);
+        // // console.log(radios);
         radios.forEach(function(radio) {
             // Add event listener for change event
             
-            // console.log(radio);
+            // // console.log(radio);
                 if (radio.checked) {
                     if(radio.value != "absent"){
-                      // console.log('Selected value:', radio.value); 
+                      // // console.log('Selected value:', radio.value); 
                       presentNumbers.push(radio.value);
                     }
 
                 }
         });
-        console.log(presentNumbers);
+        // console.log(presentNumbers);
         g_obj['present']=presentNumbers;
         g_obj['date']=$("#date-for-attendance").val();
-        console.log(g_obj);
+        // console.log(g_obj);
         let jsonString = JSON.stringify(g_obj);
         $.ajax({
             url: "http://localhost/Attendance-system/api/api-submit-school-attendance.php",
             type: "POST",
             data: jsonString,
             success: function(data) {
-              console.log(data);
+              // console.log(data);
               if(data.status == false){
                 $(".success-message").hide();
                 $(".error-message").fadeIn();
@@ -595,7 +595,7 @@ document.getElementById('date-for-attendance').value = formattedDate;
 
       // Select all radio buttons with class "dynamic-radio"
       // var radios = document.querySelectorAll('input[type="radio"]');
-      // // console.log(radios);
+      // // // console.log(radios);
 
       // // Loop through each radio button
       // radios.forEach(function(radio) {
@@ -603,7 +603,7 @@ document.getElementById('date-for-attendance').value = formattedDate;
       //     radio.addEventListener('change', function() {
       //         // Check if radio button is checked
       //         if (this.checked) {
-      //             console.log('Selected value:', this.value);
+      //             // console.log('Selected value:', this.value);
       //         }
       //     });
       // });
@@ -654,17 +654,17 @@ document.getElementById('date-for-attendance').value = formattedDate;
 
         if(error == 0)
         {
-          console.log($('#from_date').val())
-          console.log($('#to_date').val())
+          // console.log($('#from_date').val())
+          // console.log($('#to_date').val())
           $('#from_date').val('');
           $('#to_date').val('');
           $('#reportModal').modal('hide');
-          console.log(g_obj);
+          // console.log(g_obj);
           if(soc=="college"){
             window.open("report.php?action=clg_attendance_report&from_date="+from_date+"&to_date="+to_date+`&dep=${g_obj.dep}&laborlec=${g_obj.laborlec}&sem=${g_obj.sem}&sub=${g_obj.sub}&tid=${g_obj.tid}&clgid=${g_obj.clgid}`);
 
           } else{
-            // console.log("it'll go to school report");
+            // // console.log("it'll go to school report");
             window.open("report.php?action=schl_attendance_report&from_date="+from_date+"&to_date="+to_date+`&std=${g_obj.std}&sub=${g_obj.sub}&tid=${g_obj.tid}&schlid=${g_obj.schlid}`);
 
           }

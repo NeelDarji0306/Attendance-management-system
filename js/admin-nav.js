@@ -1,31 +1,37 @@
-$(document).ready(function(){
+$(document).ready(function () {
   // to hide and show the links when user clicks on menu button
-  $("#menu-btn").on("click",function(e){
+  $("#menu-btn").on("click", function (e) {
     e.preventDefault();
     // $(".pages-container").slideToggle().css('display','flex');
-    $(".pages-container").fadeToggle().css('display','flex');
+    $(".pages-container").fadeToggle().css("display", "flex");
     $(".options").addClass("d-none").removeClass("d-flex");
-    clicked=0;
+    clicked = 0;
   });
 
   $(".onhover").hover(
-    function() {
+    function () {
       $(".options").removeClass("d-none").addClass("d-flex");
     },
-    function() {
+    function () {
       $(".options").addClass("d-none").removeClass("d-flex");
     }
   );
 
-  // for fixing the navigation bar bug 
-  $(window).resize(function(){
-    if($(document).width() > 1080 && $(".pages-container").css("display")=="none"){
-      $(".pages-container").css("display","flex");
-      console.log("hii");
-    } 
-    if($(document).width() <= 1080 && $(".pages-container").css("display")=="flex"){
-      $(".pages-container").css("display","none");
-      console.log("huu");
-    } 
+  // for fixing the navigation bar bug
+  $(window).resize(function () {
+    if (
+      $(document).width() > 1080 &&
+      $(".pages-container").css("display") == "none"
+    ) {
+      $(".pages-container").css("display", "flex");
+      // console.log("hii");
+    }
+    if (
+      $(document).width() <= 1080 &&
+      $(".pages-container").css("display") == "flex"
+    ) {
+      $(".pages-container").css("display", "none");
+      // console.log("huu");
+    }
   });
 });

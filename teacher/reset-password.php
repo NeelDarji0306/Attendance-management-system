@@ -96,7 +96,7 @@
         let pass = $("#password").val().trim();
         let cPass = $("#confirm-password").val().trim();
   
-        // console.log(prevPass, pass, cPass);
+        // // console.log(prevPass, pass, cPass);
 
 
         if(prevPass==""){
@@ -151,13 +151,13 @@
         }
         let jsonString = JSON.stringify(obj);
         if(prevPass.length>0 && pass==cPass && pass.length>=8 && cPass.length>=8){
-          // console.log(jsonString);
+          // // console.log(jsonString);
           $.ajax({
           url: "http://localhost/Attendance-system/api/api-reset-password.php",
           type: "POST",
           data: jsonString,
           success: function(data) {
-            // console.log(data);
+            // // console.log(data);
             if(data.prevPassStatus==false){
               $("#p-pass-err").removeClass("d-none").html("* Wrong Password");
 
